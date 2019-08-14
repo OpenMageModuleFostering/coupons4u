@@ -1,0 +1,45 @@
+<?php 
+/**
+ * eInfochips_Coupons4U extension
+ * 
+ * NOTICE OF LICENSE
+ * 
+ * This source file is subject to the MIT License
+ * that is bundled with this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/mit-license.php
+ * 
+ * @category   	eInfochips
+ * @package		eInfochips_Coupons4U
+ * @copyright  	Copyright (c) 2014
+ * @license		http://opensource.org/licenses/mit-license.php MIT License
+ */
+/**
+ * Coupon4U list template
+ *
+ * @category	eInfochips
+ * @package		eInfochips_Coupons4U
+ * @author Ultimate Module Creator
+ */
+?>
+<?php echo $this->getMessagesBlock()->getGroupedHtml() ?>
+<?php $_coupons4u = $this->getCoupons4u(); ?>
+<div class="page-title coupon4u-title">
+	<h1><?php echo Mage::helper('coupons4u')->__('Coupons4U') ?></h1>
+</div>
+<?php if ($_coupons4u->getSize() > 0) :?>
+<?php echo $this->getPagerHtml(); ?>
+<div class="coupon4u-list-container">
+	<?php foreach ($_coupons4u as $_coupon4u) : ?>
+		<div class="coupon4u-list-item">
+			<a href="<?php echo $_coupon4u->getCoupon4uUrl();?>" title="<?php echo $this->htmlEscape($_coupon4u->getCouponid()) ?>">
+				<?php echo $_coupon4u->getCouponid(); ?>
+			</a>
+
+		</div>
+	<?php endforeach;?>
+</div>
+<?php echo $this->getPagerHtml(); ?>
+<?php else : ?>
+	<?php echo Mage::helper('coupons4u')->__('There are no coupons4u at this moment');?>
+<?php endif;?> 

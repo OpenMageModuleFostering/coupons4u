@@ -1,0 +1,58 @@
+<?php 
+$session = Mage::getSingleton('customer/session');
+//$customerId = $session->getCustomer()->getId();
+$usercouponsModel = Mage::getModel('coupons4u/einfochipscoupons4u')
+				  ->getCollection()
+				  ->addFieldToFilter('customer_id',array('eq'=>$session->getCustomer()->getId()));
+				  
+/*
+$promoModel = Mage::getModel('salesrule/rule');
+		$rulesCollection = $promoModel->getCollection()->getData();
+		foreach($rulesCollection as $rule){
+			$rule_id = $rule['rule_id'];
+			//print_r($rule_id);
+		}
+		$promo = $promoModel->load($rule_id);
+		$coupons = $promo->getCoupons();
+*/		
+?>
+<div class="dashboard">
+    <?php echo $this->getMessagesBlock()->getGroupedHtml() ?>
+    <div class="box-account box-info">
+        <div class="box-head">
+            <h2><?php echo $this->__('My Coupons') ?></h2>
+		</div>
+		<div class="col2-set">
+			<div class="box-content">
+			<table style="width:100%">
+				<tr style="height:30px;">
+				  <th>Coupon Code</th>
+				  <th style="width:30%"></th>		
+				  <th>Description</th>
+				  </tr>
+		<?php 
+				if(!empty($usercouponsModel)):
+					foreach($usercouponsModel as $couponcode):
+						
+						echo '<tr style="border-top:1px solid #CCCCCC;border-bottom:1px solid #CCCCCC;"><td style="width:30%;height:70px;backgroung:none repeat scroll 0 0 #D4D4D4;overflow:hidden;font-family:Trebuchet MS,Trebuchet,Tahoma,Arial,sans-serif;text-align:center;letter-spacing:2px;font-weight:bold;">';
+						echo '<div style="width:200px;border-radius:8px;border: dashed 2px #c00000; padding: 5px; margin: 0; text-align:center ; line-height:15px; color: #000000; font-size: 12px;background:none repeat scroll 0 0 #D7EFF5">';
+						echo $couponcode->getCode();
+						echo '</div></td>';
+						$salesruleModel = Mage::getModel('salesrule/rule')
+										->getCollection()
+										->addFieldToFilter('rule_id',array('eq'=>$couponcode->getRuleId()));
+						echo "<td><span style='font-weight:700;'></span></td>";
+						echo "<td><span style='font-weight:700;'>".$salesruleModel->getData('rule_id')[0]['description']."</span></td>";
+					//echo "</div>";
+					echo "</tr>";
+					endforeach;
+					
+				else:
+					echo "Currently no coupon(s) assigned";
+				endif;
+			?>
+			</table>
+			</div>
+		 </div>
+        </div>
+</div>

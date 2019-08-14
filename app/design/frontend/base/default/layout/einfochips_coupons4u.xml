@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * eInfochips_Coupons4U extension
+ * 
+ * NOTICE OF LICENSE
+ * 
+ * This source file is subject to the MIT License
+ * that is bundled with this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/mit-license.php
+ * 
+ * @category   	eInfochips
+ * @package		eInfochips_Coupons4U
+ * @copyright  	Copyright (c) 2014
+ * @license		http://opensource.org/licenses/mit-license.php MIT License
+ */
+-->
+<layout>
+	<customer_account>
+        <reference name="customer_account_navigation">
+           <action method="addLink" translate="label" module="coupons4u">
+              <name>Einfochips_Coupons4U</name>
+              <path>coupons4u/index/index</path>
+              <label>Coupons</label> 
+            </action>
+        </reference>
+    </customer_account>
+	<coupons4u_index_index>
+		<update handle="customer_account" />
+		<reference name="my.account.wrapper">
+			<block type="core/template" name="einfochips_coupons4u_content" template="einfochips_coupons4u/coupons.phtml"/>
+		</reference>
+	</coupons4u_index_index>
+</layout>

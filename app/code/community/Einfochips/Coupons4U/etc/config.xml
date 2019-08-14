@@ -1,0 +1,145 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Einfochips_Coupons4U extension
+ * 
+ * NOTICE OF LICENSE
+ * 
+ * This source file is subject to the MIT License
+ * that is bundled with this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/mit-license.php
+ * 
+ * @category   	Einfochips
+ * @package		Einfochips_Coupons4U
+ * @copyright  	Copyright (c) 2014
+ * @license		http://opensource.org/licenses/mit-license.php MIT License
+ */
+-->
+<config>
+	<modules>
+		<Einfochips_Coupons4U>
+			<version>0.0.1</version>
+		</Einfochips_Coupons4U>
+	</modules>
+	<global>
+		<resources>
+			<einfochips_coupons4u_setup>
+				<setup>
+					<module>Einfochips_Coupons4U</module>
+					<class>Einfochips_Coupons4U_Model_Resource_Setup</class>
+				</setup>
+			</einfochips_coupons4u_setup>
+		</resources>
+		<blocks>
+			<coupons4u>
+				<class>Einfochips_Coupons4U_Block</class>
+			</coupons4u>
+		</blocks>
+		<helpers>
+			<coupons4u>
+				<class>Einfochips_Coupons4U_Helper</class>
+			</coupons4u>
+		</helpers>
+		<models>
+			<coupons4u>
+				<class>Einfochips_Coupons4U_Model</class>
+				<resourceModel>coupons4u_resource</resourceModel>
+			</coupons4u>
+			<coupons4u_resource>
+				<class>Einfochips_Coupons4U_Model_Resource</class>
+				<entities>
+					<einfochipscoupons4u>
+						<table>coupons4u_einfochipscoupons4u</table>
+					</einfochipscoupons4u>
+					<einfochipscoupons4u_store>
+						<table>coupons4u_einfochipscoupons4u_store</table>
+					</einfochipscoupons4u_store>
+				</entities>
+			</coupons4u_resource>
+		</models>
+		<events>
+			<controller_front_init_routers>
+				<observers>
+					<einfochips_coupons4u>
+						<class>Einfochips_Coupons4U_Controller_Router</class>
+						<method>initControllerRouters</method>
+					</einfochips_coupons4u>
+				</observers>
+			</controller_front_init_routers>
+		</events>
+		<template>
+			<email>
+				<coupons4u_email_template translate="label" module="coupons4u">
+					<label>UserCoupons Email</label>
+					<file>usercoupons_email_template.html</file>
+					<type>html</type>
+				</coupons4u_email_template>
+			</email>
+		</template>
+	</global>
+	<adminhtml>
+		<layout>
+			<updates>
+				<einfochips_coupons4u>
+					<file>einfochips_coupons4u.xml</file>
+				</einfochips_coupons4u>
+			</updates>
+		</layout>
+		<translate>
+			<modules>
+				<Einfochips_Coupons4U>
+					<files>
+						<default>Einfochips_Coupons4U.csv</default>
+					</files>
+				</Einfochips_Coupons4U>
+			</modules>
+		</translate>
+	</adminhtml>
+	<admin>
+		<routers>
+			<adminhtml>
+				<args>
+					<modules>
+						<Einfochips_Coupons4U before="Mage_Adminhtml">Einfochips_Coupons4U_Adminhtml</Einfochips_Coupons4U>
+					</modules>
+				</args>
+			</adminhtml>
+		</routers>
+	</admin>
+	<frontend>
+		<routers>
+			<coupons4u>
+				<use>standard</use>
+				<args>
+					<module>Einfochips_Coupons4U</module>
+					<frontName>coupons4u</frontName>
+				</args>
+			</coupons4u>
+		</routers>
+		<layout>
+			<updates>
+				<einfochips_coupons4u>
+					<file>einfochips_coupons4u.xml</file>
+				</einfochips_coupons4u>
+			</updates>
+		</layout>
+		<translate>
+			<modules>
+				<Einfochips_Coupons4U>
+					<files>
+						<default>Einfochips_Coupons4U.csv</default>
+					</files>
+				</Einfochips_Coupons4U>
+			</modules>
+		</translate>
+	</frontend>
+	<default>
+		<coupons4u>
+			<einfochipscoupons4u>
+				<breadcrumbs>1</breadcrumbs>
+				<meta_title>EinfochipsCoupons4U</meta_title>
+			</einfochipscoupons4u>
+		</coupons4u>
+	</default>
+</config>

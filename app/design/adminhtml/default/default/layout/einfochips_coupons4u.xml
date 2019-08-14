@@ -1,0 +1,62 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Einfochips_Coupons4U extension
+ * 
+ * NOTICE OF LICENSE
+ * 
+ * This source file is subject to the MIT License
+ * that is bundled with this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/mit-license.php
+ * 
+ * @category   	Einfochips
+ * @package		Einfochips_Coupons4U
+ * @copyright  	Copyright (c) 2014
+ * @license		http://opensource.org/licenses/mit-license.php MIT License
+ */
+--> 
+<layout>
+	<!-- EinfochipsCoupons4U grid action -->
+	<adminhtml_coupons4u_einfochipscoupons4u_index>
+		<reference name="menu">
+			<action method="setActive">
+				<menupath>coupons4u/einfochipscoupons4u</menupath>
+			</action>
+		</reference>
+		<reference name="content">
+			<block type="coupons4u/adminhtml_einfochipscoupons4u" name="einfochipscoupons4u" />
+		</reference>
+	</adminhtml_coupons4u_einfochipscoupons4u_index>
+	<adminhtml_coupons4u_einfochipscoupons4u_grid>
+		<block type="core/text_list" name="root" output="toHtml">
+			<block type="coupons4u/adminhtml_einfochipscoupons4u_grid" name="einfochipscoupons4u_grid"/>
+		</block>
+	</adminhtml_coupons4u_einfochipscoupons4u_grid>
+	<!-- Einfochipscoupons4u add/edit action -->
+	<adminhtml_coupons4u_einfochipscoupons4u_edit>
+		<update handle="editor"/>
+		<reference name="menu">
+			<action method="setActive">
+				<menupath>coupons4u/einfochipscoupons4u</menupath>
+			</action>
+		</reference>
+		<reference name="content">
+			<block type="coupons4u/adminhtml_einfochipscoupons4u_edit" name="einfochipscoupons4u_edit"></block>
+		</reference>
+		<reference name="left">
+			<block type="coupons4u/adminhtml_einfochipscoupons4u_edit_tabs" name="einfochipscoupons4u_tabs"></block>
+		</reference> 
+	</adminhtml_coupons4u_einfochipscoupons4u_edit>
+	
+	<adminhtml_coupons4u_einfochipscoupons4u_view>
+        <reference name="content">
+            <block type="coupons4u/adminhtml_einfochipscoupons4u_view" name="coupons4u.einfochipscoupons4u.view"></block>
+        </reference>
+        <reference name="left">
+            <block type="coupons4u/adminhtml_einfochipscoupons4u_view_tabs" name="coupons4u.einfochipscoupons4u.tabs"></block>
+        </reference>
+    </adminhtml_coupons4u_einfochipscoupons4u_view>
+	
+	
+</layout>
