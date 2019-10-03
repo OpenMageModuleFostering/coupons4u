@@ -1,16 +1,19 @@
 {
-    "name": "OpenMageModuleFostering/Coupons4U",
+    "name": "OpenMageModuleFostering\/Coupons4U",
     "type": "magento-module",
     "license": "OSL-v3.0",
     "homepage": "",
     "description": "Coupouns for u",
     "authors": [
-    {
-        "name": "e-Infochips",
-        "email": "kishor.koshti@einfochips.com"
-    }
-],
+        {
+            "name": "e-Infochips",
+            "email": "kishor.koshti@einfochips.com"
+        }
+    ],
     "suggest": {
-        "magento-hackathon/magento-composer-installer": "*"
-    }
+        "magento-hackathon\/magento-composer-installer": "*"
+    },
+    "keywords": [
+        "openmage-module"
+    ]
 }
